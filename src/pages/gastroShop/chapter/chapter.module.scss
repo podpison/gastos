@@ -1,0 +1,55 @@
+@import "./../../../app.scss";
+
+.container {
+    .img {
+        height: auto;
+        width: 100%;
+        padding-bottom: 20px;
+        border-radius: 30px;
+    }
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {
+            text-decoration: none;
+        }
+        .name {
+            font-family: $comfortaa;
+            font-weight: bold;
+            font-size: 20px;
+            @media screen and (max-width: 1440px) {
+                font-size: 18px;
+            }
+            @media screen and (max-width: 768px) {
+                font-size: 14px;
+            }
+            @media screen and (max-width: 320px) {
+                font-size: 12px;
+            }
+        }
+        .button {
+            display: flex;
+            justify-content: space-between;
+            border-radius: 190px;
+            border: 1.5px solid $lightGreen;
+            color: $lightGreen;
+            .buttonSign {
+                font-size: 14px;
+                padding-right: 5px;
+                @media screen and (max-width: 1440px) {
+                    font-size: 12px;
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: 10px;
+                }
+                @media screen and (max-width: 320px) {
+                    font-size: 8px;
+                }
+            }
+            .buttonArrow {
+                width: 15px;
+            }
+        }
+    }
+}

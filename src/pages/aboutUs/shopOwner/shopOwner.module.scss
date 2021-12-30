@@ -1,0 +1,83 @@
+@import "./../../../app.scss";
+@import "./../aboutUs.module.scss";
+
+.mainContainer {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    .aboutOwner {
+        @include commonStyles;
+        @include textWidth;
+        @include adaptiveText;
+        padding-left: 9.3%;
+        .lightSign {
+            color: $lightGreen;
+        }
+        @media screen and (max-width: 1024px) {
+            width: 40%!important; 
+        }
+    }
+    .ownerImgContainer {
+        border: 20px solid white;
+        border-radius: 50%;
+        width: 500px;
+        height: 500px;
+        margin-top: -0.1%;
+        margin-left: 14%;
+        background-color: white;
+        .ownerImg {
+            width: 100%;
+            border-radius: 50%;
+        }
+        
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .mainContainer .aboutOwner {
+        padding-left: 6.3%;
+    }
+    .mainContainer .ownerImgContainer {
+        margin-left: 13%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .mainContainer {
+        .ownerImgContainer {
+            margin-left: 11%;
+            margin-top: 0;
+            width: 360px;
+            height: 360px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .mainContainer {
+        .ownerImgContainer {
+            width: 235px;
+            height: 235px;
+            margin-left: 9%;
+            margin-top: -12%;
+        }
+        .aboutOwner {
+            width: 45%!important;
+        }
+    }
+}
+@media screen and (max-width: 425px) {
+    .mainContainer {
+        flex-direction: column-reverse;
+        .ownerImgContainer {
+            border-width: 10px;
+            width: 100px;
+            height: 100px;
+            margin-left: 31%;
+            margin-top: 0;
+        }
+        .aboutOwner {
+            @include paddings1440;
+            width: auto!important;
+            margin-top: 10%;
+        }
+    }
+}

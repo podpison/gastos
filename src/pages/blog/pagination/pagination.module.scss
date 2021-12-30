@@ -1,0 +1,17 @@
+@import './../../../app.scss';
+
+.pagination {
+    @include mainPaddings;
+    padding-bottom: 2%;
+    ul:not(:first-child) {
+        font-size: 36px;
+    }
+    @media screen and (max-width: 1440px) {
+        @include paddings1440;
+        padding-bottom: 2%;
+    }
+    @media screen and (max-width: 425px) {
+        padding-top: 3%;
+        padding-bottom: 5%;
+    }
+}

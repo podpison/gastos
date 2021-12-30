@@ -1,0 +1,61 @@
+@import "./../aboutUs.module.scss";
+
+.mainContainer {
+    margin-top: 1%;
+    .aboutGastroChef {
+        @include commonStyles;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5%;
+        @media screen and (max-width: 425px) {
+            align-items: flex-start;
+        }
+    }
+    .text {
+        @include textWidth;
+        @include adaptiveText;
+        margin: 50px 10%!important;
+        .footer {
+            font-size: 32px;
+            margin-top: 70px!important;
+            @media screen and (max-width: 1440px) {
+                font-size: 20px
+            }
+            @media screen and (max-width: 768px) {
+                font-size: 17px;
+                margin: inherit!important;
+            }
+        }
+        @media screen and (max-width: 1024px) {
+            margin-left: inherit!important;
+        }
+        @media screen and (max-width: 425px) {
+            @include paddings1440;
+        }
+    }
+    .teamImgContainer {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    .img {
+        width: 100%;
+        @media screen and (max-width: 1440px) {
+            width: 80%;
+        }
+        @media screen and (max-width: 1024px) {
+            width: 80%;
+        }
+    }
+    @media screen and (max-width: 1440px) {
+        margin-top: 10%
+    }
+    @media screen and (max-width: 1024px) {
+        margin-top: 18%
+    }
+    @media screen and (max-width: 768px) {
+        margin-top: 8%;
+    }
+}

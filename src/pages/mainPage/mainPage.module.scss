@@ -1,0 +1,65 @@
+@import "./../../app.scss";
+
+$circlesColor: rgba(38, 240, 58, 0.1);
+
+.advantagesAndFoodProgramsContainer {
+    @include mainPaddings;
+}
+.circles {
+    div {
+        position: absolute;
+        border-radius: 50%;
+        z-index: -5155;
+    }
+    .circle1 {
+        width: 545px;
+        height: 545px;
+        background-color: $circlesColor;
+        top: 19%;
+        left: -26%;
+    }
+    .circle2 {
+        width: 530px;
+        height: 530px;
+        border: 30px solid $circlesColor;
+        top: 37%;
+        right: -15%;
+    }
+    .circle3 {
+        width: 300px;
+        height: 300px;
+        border: 20px solid $circlesColor;
+        top: 54%;
+        right: 78%;
+    }
+    .circle4 {
+        width: 185px;
+        height: 185px;
+        border: 15px solid $circlesColor;
+        top: 67%;
+        right: 68%;
+    }
+    .circle5 {
+        width: 600px;
+        height: 600px;
+        top: 66%;
+        right: -20%;
+        background-color: $circlesColor;
+    }
+    .circle6 {
+        width: 520px;
+        height: 520px;
+        border: 30px solid $circlesColor;
+        top: 75%;
+        right: 94%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .advantagesAndFoodProgramsContainer {
+        @include paddings1440;
+    }
+    .circles {
+        display: none
+    }
+}

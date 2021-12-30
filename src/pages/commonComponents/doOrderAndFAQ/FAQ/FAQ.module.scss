@@ -1,0 +1,62 @@
+@import './../../../../app.scss';
+
+.sign {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: $comfortaa;
+    text-align: center;
+}
+.container {
+    width: 540px;
+    border-radius: 30px;
+    padding: 0 15px;
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    .variants {
+        color: white;
+        .detailsItem {
+            font-weight: bold;
+        }
+        p:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+    .MuiAccordionSummary-expandIconWrapper {
+        transform: rotate(90deg)!important;
+    }
+}
+.active {
+    background-color: $lightGreen;
+}
+.clickable {
+    cursor: pointer;
+}
+.offUnderline {
+    &:before {
+        display: none;
+    }
+}
+.accordion {
+    height: 40px;
+    min-height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: initial;
+    }
+}
+@media screen and (max-width: 768px) {
+    .mainContainer {
+        width: 100%;
+        .container {
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+@media screen and (max-width: 425px) {
+    .sign {
+        font-size: 20px;
+    }
+}

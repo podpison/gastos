@@ -1,0 +1,19 @@
+@import "./../../../app.scss";
+
+.button {
+    font-size: 25px;
+    font-weight: 500;
+    padding: 10px 35px;
+    border-radius: 190px;
+    display: block;
+    margin: 50px 0 40px auto;
+    background-color: $lightGreen;
+    color: white;
+    @media screen and (max-width: 1024px) {
+        font-size: 20px;
+    }
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+        margin: 20px 0 30px auto;
+    }
+}

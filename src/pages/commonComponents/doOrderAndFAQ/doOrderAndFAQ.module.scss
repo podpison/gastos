@@ -1,0 +1,20 @@
+@import "./../../../app.scss";
+
+.container {
+    @include mainPaddings;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1440px) {
+    .container {
+        @include paddings1440;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

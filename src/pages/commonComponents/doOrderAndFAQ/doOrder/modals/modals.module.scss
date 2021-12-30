@@ -1,0 +1,257 @@
+@import './../../../../../app.scss';
+
+.modal {
+    overflow: scroll;
+}
+.phoneModalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.onlineModalContainer {
+    display: flex;
+    margin-top: 12%;
+    justify-content: center;
+    margin-bottom: 20px;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        @include paddings1440;
+   }
+}
+.infoAndButton {
+    display: flex;
+    flex-direction: column;
+}
+.close {
+    position: absolute;
+    right: -3%;
+    top: -11%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+    @media screen and (max-width: 425px) {
+        top: -7%;
+    }
+}
+.phoneContainer {
+    width: fit-content;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    position: relative;
+}
+.button {
+    background-color: $lightGreen;
+    box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+    border-radius: 190px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    margin: 0 auto;
+    border: none;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.onlineContainer {
+    position: relative;
+    margin-right: 20px;
+    @media screen and (max-width: 768px) {
+        margin-right: 0;
+    }
+}
+.badgeTextField {
+    margin-top: 15px;
+    span:first-child {
+        width: 100%
+    }
+}
+.textField {
+    border-radius: $borderRadius190;
+    padding-left: 15px;
+    background-color: white;
+    display: inline-block;
+    white-space: pre;
+    width: 40px;
+}
+.textFieldsFirstPart {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 5fr 1fr 1fr;
+    }
+    @media screen and (max-width: 425px) {
+        div:first-child {
+            grid-area: street;
+        }
+        grid-template-columns: none;
+        grid-template-areas: 'street street' 'house floor';
+    }
+}
+.textFieldsFirstPart, .textFieldsSecondPart {
+    input:not(:first-child) {
+        width: 30px
+    }
+} 
+.textFieldsSecondPart {
+    display: flex
+}
+.bigTextField { 
+    width: 100%;
+    div {
+        width: 100%
+    }
+}
+.street {
+    width: 100%;
+}
+.textfieldBad {
+    color: $lightRed;
+}
+.textfieldGood {
+    color: $lightGreen;
+}
+.status {
+    margin: 3px 0 0 7px;
+}
+.badStatus, .gapsWarning {
+    background-color: #FE3666;
+    box-shadow: 0 0 30px #FE3666;
+}
+.noneStatus {
+    background-color: inherit;
+}
+.goodStatus {
+    background-color: $lightGreen;
+    box-shadow: 0 0 30px $lightGreen;
+}
+.gapsWarning {
+    position: absolute;
+    border-radius: $borderRadius190;
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+    font-size: 20px;
+    top: -15%;
+    left: 5%;
+}
+.home, .floor, .frontDoor, .intercom {
+    margin-left: 10px;
+}
+.home, .floor, .frontDoor, .intercom, .apartment {
+    padding-right: 15px;
+}
+.home {
+    width: 70px;
+}
+.floor {
+    width: 66px;
+}
+.apartment, .intercom {
+    width: 115px
+}
+.frontDoor {
+    width: 120px;
+}
+.home::before, .floor::before, .apartment::before, .frontDoor::before, .intercom::before {
+    font-family: $montserrat;
+}
+.home::before {
+    content: 'Дом: ';
+}
+.floor::before {
+    content: 'Этаж: ';
+}
+.apartment::before {
+    content: 'Квартира: ';
+}
+.frontDoor::before {
+    content: 'Парадное: ';
+}
+.intercom::before {
+    content: 'Домофон: ';
+}
+.orderInformationAndButtonContainer {
+    display: flex;
+}
+.orderInformationAndButton {
+    margin-right: 40px;
+}
+.countAndPrice {
+    border: 3px solid #F5FAFF;
+    border-radius: $borderRadius190;
+    filter: drop-shadow(0 0 20px #F5FAFF);
+    padding: 10px 45px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+.checkboxContainer, .countAndPrice, .FAQ h2 {
+    color: white;
+}
+.FAQ {
+    margin-top: -55px;
+    h2 {
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        margin-top: 0;
+    }
+}
+.orderInformationAndButtonAndCheckboxContainer {
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+.orderInformationAndButtonAndCheckboxContainerMobile {
+    display: none;
+    @media screen and (max-width: 768px) {
+        display: initial;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .button {
+        font-size: 18px;
+    }
+    .phoneContainer {
+        padding: 5%;
+    }
+    .home {
+        margin-left: 0;
+    }
+    .textFieldsSecondPart, .orderInformationAndButtonContainer {
+        flex-direction: column;
+    }
+    .frontDoor, .intercom {
+        margin: 0;
+    }
+    .home, .floor, .apartment, .frontDoor, .intercom, .button, .orderInformationAndButton {
+        width: 100%;
+    }
+    .gapsWarning {
+        top: -11%;
+    }
+    .orderInformationAndButton {
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 375px) {
+    .phoneContainer {
+        margin: 0 5%;
+    }
+}
+@media screen and (max-width: 320px) {
+    .button {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .gapsWarning {
+        font-size: 16px;
+        top: -7%;
+    }
+}

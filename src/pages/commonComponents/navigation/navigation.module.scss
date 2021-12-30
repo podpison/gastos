@@ -1,0 +1,269 @@
+@import "./../../../app.scss";
+
+.appBar {
+    padding: 0 5%;
+    background-color: inherit;
+    position: relative;
+    box-shadow: none;
+    z-index: 0;
+}
+.mainContainer {
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+.logoContainer {
+    background-color: #F5FAFF;
+    width: 264px;
+    height: 264px;
+    border-radius: 50%;
+    margin-top: -5%;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logoSign {
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    font-family: 'Comfortaa', cursive;
+}
+.navContainer {
+    display: flex;
+    margin: 0 0 3% -2%;
+}
+.navLinksContainer, .logoContainer {
+    box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+}
+.link{
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+    font-family: $comfortaa
+}
+.navLinksContainer a:first-child {
+    margin-left: 60px;
+}
+.navLinksContainer a:last-child {
+    margin-right: 40px;
+}
+.active {
+    color: #64D370;
+}
+.navLinksContainer, .number {
+    background-color: white;
+    border-radius: 190px;
+    padding: 17px 0;
+}
+.number {
+    margin-left: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    a {
+        text-decoration: none;
+        color: #64D370;
+    }
+}
+.bigGreenCircleContainer {
+    overflow: hidden;
+}
+.bigGreenCircle, .smallGreenCirle {
+    background-color: #64D370;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2222;
+}
+.bigGreenCircle {
+    width: 1000px;
+    height: 1000px;
+    top: -47%;
+    right: -17%;
+}
+.smallGreenCirle {
+    width: 500px;
+    height: 500px;
+    right: -10%;
+    top: -140%;
+}
+
+.navWithBurger {
+    display: flex;
+    height: 30px;
+    background-color: white;
+    .call, .burger {
+        width: 65px;
+        height: 65px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex; 
+        margin-top: -20px;
+        box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+        img {
+            margin: auto;
+        }
+    }
+    .call {
+        margin-left: 25px;
+    }
+    .burger {
+        margin-left: 20px;
+        margin-right: -10px;
+    }
+}
+
+.mobileNavContainer {
+    border-radius: 0 0 50px 50px;
+    .closeButtonContainer {
+        width: 65px;
+        height: 65px;
+        box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+        display: flex;
+        position: absolute;
+        border-radius: 50%;
+        right: 20px;
+        top: 20px;
+        .closeButton {
+            margin: auto;
+        }
+    }
+    .links {
+        padding: 40px 0 0 35px;
+        div {
+            display: flex;
+            flex-direction: column;
+            a:not(:last-child) {
+                margin-bottom: 20px;
+            }
+            a {
+                font-weight: bold;
+                margin-left: 0;
+            }
+        }
+    }
+    .phoneNumberContainer {
+        display: flex;
+        width: 90%;
+        border-radius: 190px;
+        box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+        margin: 40px auto 20px;
+        background-color: $lightGreen;
+        .phoneNumber {
+            margin: auto;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            padding: 12px 0;
+            text-decoration: none
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .appBar {
+        padding: 0 2.2%;
+    }
+    .bigGreenCircle {
+        right: -20%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .appBar {
+        padding: 0;
+    }
+    .logoContainer {
+        width: 200px;
+        height: 200px;
+        .logo {
+            width: 129px;
+        }
+        .logoSign {
+            font-size: 13px;
+        }
+    }
+    .navLinksContainer {
+        a:first-child {
+            margin-left: 40px;
+        }
+        .link {
+            font-size: 12px;
+            margin-left: 20px;
+        }
+    }
+    .number {
+        font-size: 15px;
+    }
+    .bigGreenCircle {  
+        top: -151%;
+        right: -45%;
+    }
+    .smallGreenCirle {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .logoContainer {
+        width: 150px;
+        height: 150px;
+        .logo {
+            width: 103px;
+        }
+        .logoSign {
+            font-size: 10px;
+        }
+    }
+    .navLinksContainer {
+        padding: 10px 0;
+        .link {
+            font-size: 12px;
+            font-size: 8px;
+        }
+    }
+    .number {
+        padding: 10px 20px;
+    }
+    .number {
+        font-size: 10px;
+    }
+    .bigGreenCircle {
+        width: 760px;
+        height: 760px;
+        right: -51%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .logoContainer {
+        width: 140px;
+        height: 140px;
+        margin-right: -5px;
+    }
+    .bigGreenCircle {
+        right: -73%;
+        top: -382%;
+    }
+}
+@media screen and (max-width: 375px) {
+    .bigGreenCircle {
+        right: -94%;
+    }
+}
+@media screen and (max-width: 320px) {
+    .bigGreenCircle {
+        right: -120%;
+        top: -414%;
+    }
+    .burger {
+        margin-left: 15px;
+    }
+    .call {
+        margin-left: 20px;
+    }
+    .logoContainer {
+        width: 130px;
+        height: 130px;
+    }
+}

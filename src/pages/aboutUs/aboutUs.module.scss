@@ -1,0 +1,150 @@
+@import "./../../app.scss";
+
+@mixin adaptiveText {
+    @media screen and (max-width: 1024px) {
+        width: 55%;
+    }
+    @media screen and (max-width: 768px) {
+        width: 100%
+    }
+    @media screen and (max-width: 425px) {
+        width: auto;
+    }
+}
+
+@mixin commonStyles {
+    .header, .footer, .bold {
+        font-weight: bold;
+    }
+    .header {
+        font-size: 32px;
+        letter-spacing: 0.025em;
+        line-height: 36px;
+        @media screen and (max-width: 1024px) {
+            font-size: 20px;
+        }
+        @media screen and (max-width: 1024px) {
+            font-size: 18px;
+        }
+    }
+    .footer {
+        font-size: 20px;
+        line-height: 22px;
+        @media screen and (max-width: 1024px) {
+            font-size: 16px;
+        }
+    }
+    .text {
+        font-size: 20px;
+        margin: 20px 0 40px;
+        p {
+            margin-top: 20px;
+            line-height: 22px;
+        }
+        @media screen and (max-width: 1024px) {
+            font-size: 16px;
+        }
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+            margin: 0 0 25px;
+        }
+    }
+    @media screen and (max-width: 425px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@mixin textWidth {width: 38%}
+
+$circleColor: rgba(38, 240, 58, 0.1);
+@mixin borderForCircle {border: 20px solid $circleColor;}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-family: $comfortaa;
+    h1, h2 {margin: 0}
+    .circles {
+        div {
+            position: absolute;
+            z-index: -222;
+            border-radius: 50%;
+        }
+        .circle1 {
+            @include borderForCircle;
+            width: 220px;
+            height: 220px;
+            right: 31%;
+            top: 12%;
+        }
+        .circle2 {
+            @include borderForCircle;
+            width: 425px;
+            height: 425px;
+            right: -18%;
+            top: 14%;
+        }
+        .circle3 {
+            width: 500px;
+            height: 500px;
+            background-color: $circleColor;
+            left: 10%;
+            top: 16%;
+        }
+        .circle4 {
+            @include borderForCircle;
+            width: 530px;
+            height: 530px;
+            right: -17%;
+            top: 32%;
+        }
+        .circle5 {
+            @include borderForCircle;
+            width: 185px;
+            height: 185px;
+            left: 3%;
+            top: 47%;
+        }
+        .circle6 {
+            width: 400px;
+            height: 400px;
+            background-color: $circleColor;
+            right: 10%;
+            top: 51%;
+        }
+        .circle7 {
+            @include borderForCircle;
+            width: 520px;
+            height: 520px;
+            left: -25%;
+            top: 62%;
+        }
+        .circle8 {
+            @include borderForCircle;
+            width: 185px;
+            height: 185px;
+            left: 10%;
+            top: 76%;
+        }
+        .circle9 {
+            @include borderForCircle;
+            width: 520px;
+            height: 520px;
+            right: -21%;
+            top: 70%;
+        }
+        .circle10 {
+            width: 520px;
+            height: 520px;
+            background-color: $circleColor;
+            left: -18%;
+            top: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .circles {
+        display: none;
+    }
+}

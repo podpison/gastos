@@ -1,0 +1,204 @@
+.sidebar {
+    width: 40%;
+}
+.description {
+    background-color: #64D370;
+    color: white;
+    padding: 18px 30px 25px;
+}
+.description, .schedule, .weekDays {
+    box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+    border-radius: 30px;
+}
+.orderItemContainer, .descriptionHeader, .mainContainer {
+    display: flex
+}
+.descriptionHeader {
+    align-items: center;
+}
+.orderItemContainer {
+    justify-content: space-between;
+    margin: 3% 0;
+}
+.sidebarName {
+    font-size: 25px;
+    font-weight: bold;
+}
+.sidebarWeight {
+    font-size: 18px;
+    margin: 3% 0 0 7%;
+}
+.sidebarDescription {
+    margin-top: 15px;
+}
+.sidebarButtonContainer {
+    width: 100%;
+    margin-top: 10%;
+}
+.sidebarButton {
+    display: block;
+    margin: 0 auto;
+    background-color: #64D370;
+    color: white;
+    box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+    border-radius: 190px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 26px;
+    font-weight: bold;
+}
+.orderItems {
+    margin-top: 11%;
+}
+.weekSchedule {
+    width: 100%;
+    margin-left: 2%;
+}
+.scheduleContainer {
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr;
+}
+.scheduleContainer:not(.scheduleContainer:first-child) {
+    margin-top: 5%;
+}
+.schedule {
+    background-color: white;
+    margin-top: 2%;
+    text-align: center;
+    padding: 3% 5%;
+}
+.weekDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: white;
+    padding: 1% 0;
+}
+.weekDay {
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+.active {
+    color: #64D370;
+}
+.scheduleNameAndTime {
+    text-align: left;
+}
+.scheduleName {
+    font-size: 20px;
+}
+.scheduleTime {
+    margin-top: 1%;
+}
+.scheduleWeight {
+    text-align: right;
+}
+.scheduleFood {
+    text-align: start
+}
+.scheduleTime, .scheduleFood, .scheduleWeight {
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1024px) {
+    .sidebarName, .sidebarButton {
+        font-size: 22px;
+    }
+    .weekDay  {
+        font-size: 20px;
+    }
+    .scheduleName {
+        font-size: 18px;
+    }
+    .scheduleTime, .scheduleFood, .scheduleWeight{
+        font-size: 16px;
+    }
+    .sidebarDescription, .orderItemContainer {
+        font-size: 14px;
+    }
+    .schedule {
+        height: 81%;
+    }
+    .scheduleContainer {
+        margin-top: 7%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .weekDays {
+        padding: 2% 0;
+    }
+    .scheduleTime, .sidebarWeight {
+        font-size: 10px;
+    }
+    .sidebarDescription {
+        font-size: 11px;
+    }
+    .scheduleFood, .weekDay, .scheduleTime, .orderItemContainer {
+        font-size: 12px;
+    }
+    .scheduleWeight, .sidebarButton {
+        font-size: 14px;
+    }
+    .scheduleName {
+        font-size: 13px;
+    }
+    .sidebarName {
+        font-size: 16px;
+    }
+    .scheduleContainer {
+        margin-top: 0;
+    }
+    .scheduleContainer:not(.scheduleContainer:first-child) {
+        margin-top: 7%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .mainContainer {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .orderItems {
+        margin: 11% 30px;
+    }
+    .sidebarButton {
+        margin-bottom: 40px;
+    }
+    .schedule {
+        margin-top: 20px;
+        padding: 20px;
+    }
+    .weekDay {
+        font-size: 14px;
+    }
+    .weekDays {
+        padding: 15px;
+    }
+    .weekSchedule {
+        margin-left: 0;
+    }
+    .scheduleName {
+        font-size: 14px;
+        margin-right: 20px;
+    }
+    .scheduleContainer {
+        display: grid;
+        grid-template-areas: 'name name weight' 'food food food';
+    }
+    .scheduleNameAndTime {
+        display: flex;
+        margin-bottom: 10px;
+        grid-area: name;
+    }
+    .scheduleWeight {
+        margin-bottom: 0;
+        grid-area: weight;
+    }
+    .scheduleFood {
+        grid-area: food;
+    }
+}

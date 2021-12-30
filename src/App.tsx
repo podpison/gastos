@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import './app.scss';
+import { Navigation } from './pages/commonComponents/navigation/Navigation';
+import StyledEngineProvider from '@mui/material/StyledEngineProvider';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { DoOrderAndFAQ } from './pages/commonComponents/doOrderAndFAQ/DoOrderAndFAQ';
+import { Footer } from './pages/commonComponents/footer/Footer';
+import { MainPage } from './pages/mainPage/MainPage';
+import { Switch } from 'react-router';
+import { AboutUs } from './pages/aboutUs/AboutUs';
+import { FoodPictures } from './pages/commonComponents/foodPictures/FoodPictures';
+import { Blog } from './pages/blog/Blog';
+import { BusinessLunches } from './pages/businessLunches/BusinessLunches';
+import { GastroShop } from './pages/gastroShop/GastroShop';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledEngineProvider injectFirst>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className='app'>
+            <Navigation />
+            <Switch>
+              <Route exact path='/' component={MainPage} />
+              <Route path='/foodPrograms' component={MainPage} />
+              <Route path='/aboutUs' component={AboutUs} />
+              <Route path='/blog' component={Blog} />
+              <Route path='/buisnesLanch' component={BusinessLunches} />
+              <Route path='/gastroShop' component={GastroShop} />
+            </Switch>
+            <Route path={['/foodPrograms', '/aboutUs', '/buisnesLanch', '/foodPictures']} component={FoodPictures} />
+            <Route exact path='/' component={FoodPictures} />
+            <Route exact path='/' component={DoOrderAndFAQ} />
+            <Route path={['/foodPrograms','/aboutUs', '/foodPictures']} component={DoOrderAndFAQ} />
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </Provider>
+    </StyledEngineProvider>
   );
 }
 

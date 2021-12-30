@@ -1,0 +1,43 @@
+.advantagesContainer {
+    grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    background-color: rgba(245, 250, 255, 0.8);
+    border-radius: 30px;
+    padding: 20px 0;
+    position: relative;
+    .itemContainer {
+        text-align: center;
+        margin-bottom: 15px;
+        &:not(:first-child) {
+            margin-left: 2%;
+        }
+    }
+}
+.img {
+    width: 50px;
+    height: 50px
+}
+.description {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .advantagesContainer {
+        margin-top: -10%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .advantagesContainer {
+        margin-top: 10%;
+    }
+    .description {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .advantagesContainer {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 5%;
+    }
+}

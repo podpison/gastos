@@ -1,0 +1,38 @@
+$borderRadius190: 190px;
+$lightGreen: #64D370;
+$lightRed: #F87676;
+$montserrat: 'Montserrat', sans-serif;
+$comfortaa: 'Comfortaa', cursive;
+@mixin mainPaddings {padding: 0 9.3%};
+@mixin paddings1440 {padding: 0 6.3%};
+
+.app {
+    position: relative;
+    overflow: hidden;
+    font-family: $montserrat;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+body {
+    background-color: rgba(245, 250, 255, 0.8);
+    margin: 0;
+}
+p {
+    margin: 0
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+//this rool is for more black background in modals
+.MuiModal-root {
+    .MuiBackdrop-root {
+        opacity: 0.8!important;
+        background-color: black!important;
+    }
+}

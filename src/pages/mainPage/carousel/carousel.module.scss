@@ -1,0 +1,192 @@
+@import './../../../app.scss';
+
+.mainContainer {
+    position: relative;
+    padding-bottom: 7%;
+    height: 540px;
+}
+.carouselContainer {
+    padding-left: 9.3%;
+}
+.itemContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.itemContainer p {
+    color: black
+}
+.img {
+    border-radius: 48%;
+    height: 100%;
+}
+.imgContainer {
+    border: 20px solid white;
+    border-radius: 50%;
+    width: 540px;
+    height: 540px;
+    margin-right: 6%;
+}
+.programDescription {
+    width: 500px;
+    text-align: start
+}
+.mainDescription {
+    line-height: 45px;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+    font-size: 40px;
+    margin: 0;
+    padding-bottom: 1%;
+}
+.secondDescription {
+    font-size: 20px;
+    padding-bottom: 5%;
+}
+.orderAndPrice {
+    display: flex
+}
+.mainDescription, .button {
+    font-family: 'Comfortaa', cursive;
+}
+.button {
+    color: white;
+    background-color: #64D370;
+    border-radius: 190px;
+    padding: 0 60px;
+    box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+    font-size: 26px;
+}
+.price {
+    margin-left: 5%;
+    font-size: 20px;
+    text-align: start;
+}
+.greenSign, .arrow, .selected {
+    color: #64D370;
+}
+.greenSign {
+    font-weight: bold;
+    margin-top: 5px;
+}
+.arrow {
+    width: 15px;
+    margin: 0 5px;
+}
+.dot {
+    color: #64D370;
+    width: 10px;
+    margin: 0 5px
+}
+.active {
+    width: 14px;
+}
+
+@media screen and (max-width: 1440px) {
+    .carouselContainer {
+        padding-left: 6.3%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .mainContainer {
+        padding-bottom: 0;
+    }
+    .carouselContainer {
+        padding-left: 8.3%;
+    }
+    .mainDescription {
+        font-size: 25px;
+        width: 70%;
+        line-height: initial;
+    }
+    .orderAndPrice {
+        flex-direction: column;
+        padding-bottom: 50px;
+        width: 40%;
+        .button {
+            font-size: 20px;
+            height: 48px;
+        }
+    }
+    .imgContainer {
+        width: 400px;
+        height: 400px;
+    }
+    .mainContainer ul {
+        width: auto!important;
+    }
+    .price {
+        margin-left: 0;
+        padding-top: 10px;
+    }
+    .secondDescription {
+        padding: 10px 0 30px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .mainDescription {
+        font-size: 18px;
+    }
+    .secondDescription {
+        font-size: 12px;
+        padding: 10px 0 25px;
+    }
+    .button {
+        font-size: 16px;
+    }
+    .orderAndPrice {
+        width: 100%;
+        .button {
+            font-size: 16px;
+            width: 160px;
+            height: 40px;
+        }
+    }
+    .price {
+        small {
+            font-size: 12px;
+        }
+        .greenSign {
+            font-size: 18px;
+        }
+    }
+    .imgContainer {
+        width: 275px;
+        height: 275px;
+    }
+    .mainContainer {
+        height: fit-content;
+    }
+    .programDescription {
+        width: initial;
+    }
+}
+@media screen and (max-width: 425px) {
+    .itemContainer {
+        flex-direction: column-reverse;
+        .imgContainer {
+            width: 120px;
+            height: 120px;
+            border-width: 10px;
+            margin-left: 30%;
+        }
+    }
+    .mainDescription {
+        width: 90%;
+        font-size: 18px;
+    }
+    .secondDescription {
+        font-size: 14px;
+        width: 50%;
+    }
+    .orderAndPrice {
+        width: initial;
+        .button {
+            font-size: 14px;
+            padding: 10px 30px;
+        }
+    }
+    .programDescription {
+        margin-top: 15%;
+    }
+}

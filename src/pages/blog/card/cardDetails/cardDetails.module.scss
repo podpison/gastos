@@ -1,0 +1,126 @@
+@import "./../../../../app.scss";
+@import "./../card.module.scss";
+
+.conatiner {
+    @include mainPaddings;
+    @include headline;
+    @include date;
+    margin-top: -5%;
+    .mainImage {
+        width: 100%;
+        height: 500px;
+        @media screen and (max-width: 1024px) {
+            height: 100%;
+        }
+    }
+    img {
+        border-radius: 30px;
+        height: auto;
+        width: 100%;
+    }
+    .content {
+        margin: 0 25px;
+        .headerContainer {
+            display: grid;
+            grid-template-columns: 1fr 40fr;
+            align-items: baseline;
+            margin-top: 15px;
+            .header {
+                display: flex;
+                justify-content: space-between;  
+                .share {
+                    display: flex;
+                    align-items: center;
+                    a {
+                        color: black;
+                        margin-left: 10px;
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                .headline {
+                    font-size: 25px;
+                    margin-left: 2%;
+                    @media screen and (max-width: 425px) {
+                        display: none;
+                    }
+                }          
+            }
+            .arrowContainer {
+                width: 30px;
+                text-align: center;
+                background-color: lightgray;
+                border-radius: 50%;
+                padding-top: 2px;
+                .arrow {
+                    width: 20px;
+                    color: black;
+                    margin: 2px 0 0 8px;
+                }
+            }
+            @media screen and (max-width: 425px) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+        }
+        .textContainer {
+            margin: 0 4.3%;
+            .text, .textImgPrevious {
+                font-size: 18px;
+            }
+            .text {
+                margin: 25px 2% 0;
+            }
+            .textImgPrevious {
+                margin: 0 2%;
+            }
+            .foodImg {
+                margin: 60px 0;
+                width: 100%;
+                height: auto;
+                @media screen and (max-width: 425px) {
+                    margin: 30px 0 30px -15%;
+                    width: 130%;
+                }
+            }
+        }
+        .date {
+            margin: 15px 0 0 4.3%;
+        }
+    }
+    .headlineMobile {
+        display: none;
+        font-size: 25px;
+        margin-left: 2%;
+        @media screen and (max-width: 425px) {
+            display: block;
+        }
+        @media screen and (max-width: 320px) {
+            font-size: 20px;
+        }
+    }
+    .button {
+        font-family: $comfortaa;
+        font-weight: bold;
+        font-size: 22px;
+        padding: 17px 56px;
+        display: block;
+        margin: 0 auto;
+        background-color: $lightGreen;
+        border-radius: 190px;
+        margin-top: 70px;
+        @media screen and (max-width: 768px) {
+            margin-top: 50px;
+        }
+        @media screen and (max-width: 425px) {
+            font-size: 12px;
+            padding: 7px 20px;
+            margin: 30px auto;
+        }
+    }
+    @media screen and (max-width: 1440px) {
+        @include paddings1440;
+    }
+}

@@ -1,0 +1,44 @@
+.mainContainer {
+    padding-top: 100px
+}
+.programNames {
+    text-align: center;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.programNameContainer:not(.programNameContainer:first-child) {
+    margin-left: 5%;
+}
+.programName {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.active {
+    color: #64D370;
+}
+.programWeight {
+    font-size: 14px;
+    margin-top: 7px
+}
+
+@media screen and (max-width: 1440px) {
+    .mainContainer {
+        padding-top: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .programName {
+        font-size: 14px;
+    }
+    .programWeight {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .programNames {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

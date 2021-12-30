@@ -1,0 +1,17 @@
+.container {
+    background-color: rgba(2, 2, 2, 0.4);
+    border: 3px solid #F5FAFF;
+    border-radius: 30px;
+    height: fit-content;
+    padding: 25px 30px;
+    @media screen and (max-width: 425) {
+        margin-top: 20px;
+    }
+}
+.item {
+    color: white;
+    font-weight: bold;
+    &:not(:first-child) {
+        margin-top: 20px;
+    }
+}

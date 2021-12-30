@@ -1,0 +1,51 @@
+@import "./../../../app.scss";
+
+@mixin headline {
+    .headline {
+        font-weight: bold;
+        font-family: $comfortaa;
+    }
+}
+@mixin date {
+    .date {
+        color: #B5C2CE;
+        font-size: 14px;
+    }
+}
+
+
+.mainContainer {
+    @include headline;
+    background-color: inherit;
+    box-shadow: none;
+    a {
+        text-decoration: none;
+    }
+    .media {
+        border-radius: 30px;
+        width: 100%;
+        height: auto;
+    }
+    .headline {
+        padding: 20px auto 15px auto;
+    }
+    .actions {
+        @include date;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    .button {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 190px;
+        border: 1.5px solid $lightGreen;
+        color: $lightGreen;
+        .buttonSign {
+            font-size: 14px;
+        }
+        .buttonArrow {
+            width: 15px;
+        }
+    }
+}

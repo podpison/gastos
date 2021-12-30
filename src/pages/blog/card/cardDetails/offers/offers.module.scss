@@ -1,0 +1,21 @@
+@import "./../../../../../app.scss";
+
+.container {
+    .sign {
+        text-align: center;
+        font-family: $comfortaa;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 30px 0 20px;
+    }
+    .itemsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media screen and (max-width: 425px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

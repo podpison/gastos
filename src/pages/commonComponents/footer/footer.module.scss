@@ -1,0 +1,109 @@
+@import './../../../app.scss';
+
+@mixin fontSize20 {font-size: 20px;};
+@mixin marginTop10 {margin-top: 10px};
+@mixin link {
+    text-decoration: none;
+    color: black;
+}
+@mixin flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    @include fontSize20;
+    @include mainPaddings;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0 0 30px rgba(86, 86, 86, 0.25);
+    margin: 150px 0 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+    .about {
+        div {
+            @include flex;
+        }
+        a {
+            margin: 0;
+            font-weight: bold;
+            &:not(:first-child) {
+                @include marginTop10;
+            }
+        }
+    };
+    .logoContainer {
+        @include flex;
+        align-items: center;
+        .logoSign {
+            margin-top: 5px;
+        }
+    }
+    .contacts {
+        @include flex;
+        align-items: flex-end;
+        .termsOfCooperation {
+            @include link;
+        }
+        .FAQ {
+            @include link;
+            @include marginTop10;
+        }
+        .phone {
+            @include marginTop10;
+            @include link;
+            color: $lightGreen;
+            font-weight: bold
+        }
+    }
+}
+
+.socialMedia {
+    @include marginTop10;
+    a {
+        color: black;
+    }
+    svg {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .container {
+        @include paddings1440;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .container {
+        margin: 100px 0;
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .container {
+        margin: 60px 0 50px;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .about {
+        display: none;
+    }
+    .contacts {
+        align-items: center;
+        .termsOfCooperation, .FAQ {
+            display: none;
+        }
+    }
+    .socialMedia {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

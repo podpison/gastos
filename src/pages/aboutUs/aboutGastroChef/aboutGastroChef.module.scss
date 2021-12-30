@@ -1,0 +1,72 @@
+@import "./../../../app.scss";
+@import "./../aboutUs.module.scss";
+
+.mainContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    .imgContainer {
+        display: flex;
+        margin-left: auto;
+        .img {
+            width: 100%;
+            margin-left: auto;
+            @media screen and (max-width: 1440px) {
+                width: 80%;
+            }
+        }
+        @media screen and (max-width: 425px) {
+            margin: 10% 0;
+        }
+    }
+    .aboutGastroChef {
+        @include commonStyles;
+        @include adaptiveText;
+        width: 39%;
+        padding-left: 9.3%;
+        justify-content: space-between;
+        .footer {
+            margin-top: 40px;
+            .bigSign {
+                font-size: 32px;
+                line-height: 33px;
+                @media screen and (max-width: 1440px) {
+                    font-size: 20px;
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: 17px;
+                    margin-top: 0;
+                }
+            }
+            .socialMedia {
+                display: flex;
+                margin-top: 15px;
+                a {
+                    color: black;
+                    margin-left: 15px;
+                }
+                p {
+                    font-weight: normal;
+                    margin-left: 5px;
+                    @media screen and (max-width: 320px) {
+                        font-size: 15px;
+                    }
+                }
+            }
+            @media screen and (max-width: 768px) {
+                margin-top: 0;
+            }
+        }
+        @media screen and (max-width: 1440px) {
+            padding-left: 6.3%;
+        }
+        @media screen and (max-width: 425px) {
+            flex-direction: column;
+            @include paddings1440;
+        }
+    }
+    @media screen and (max-width: 425px) {
+        flex-direction: column-reverse;
+    }
+}
+

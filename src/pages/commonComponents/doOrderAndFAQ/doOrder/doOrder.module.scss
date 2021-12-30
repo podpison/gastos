@@ -1,0 +1,142 @@
+@import './../../../../app.scss';
+
+.mainContainer {
+    width: 400px;
+}
+.mainContainer p {
+    margin: 0;
+}
+.doOrderContainer {
+    text-align: center;
+    padding-top: 5%;
+}
+.doOrder {
+    font-family: $comfortaa;
+    font-weight: bold;
+    font-size: 30px;
+}
+.textfieldName {
+    font-family: $comfortaa;
+    padding-left: 4%;
+    margin-bottom: 2%;
+    font-weight: bold;
+    font-size: 18px;
+}
+.textfieldNameBad {
+    color: $lightRed;
+}
+.textfieldNameGood {
+    color: $lightGreen;
+}
+.textFieldContainer {
+    display: flex;
+    background-color: #DEE6EE;
+    border-radius: 190px;
+    padding: 0 4%;
+    align-items: center;
+    justify-content: space-between;
+}
+.goodStatus, .badStatus {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.goodStatus {
+    background-color: $lightGreen;
+}
+.badStatus {
+    background-color: $lightRed;
+}
+.noneStatus {
+    background-color: inherit;
+}
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+.checkboxContainer:first-child {
+    margin-top: 3%;
+}
+.checkboxName {
+    font-family: $comfortaa;
+    font-weight: bold;
+}
+.checkbox {
+    width: 38px;
+    height: 38px;
+}
+.icon, .checkedIcon {
+    background-color: #DEE6EE;
+    color: #DEE6EE;
+    border-radius: 50%;
+}
+.checkedIcon {
+    padding: 5px;
+    width: 10px;
+    height: 10px;
+    color: $lightGreen;
+}
+.textfieldMainContainer:last-child, .textfieldsContainer {
+    margin-top: 8%;
+}
+.button {
+    border-color: $lightGreen;
+    box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+    border-radius: 190px;
+    color: $lightGreen;
+    font-size: 22px;
+    font-weight: bold;
+    border-width: 3px;
+    display: flex;
+    margin: 0 auto
+}
+.button:first-child {
+    margin-top: 3%;
+}
+.or {
+    font-family: $comfortaa;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 3% 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .doOrderContainer {
+        .doOrder {
+            font-size: 25px;
+        }
+    }
+    .mainContainer {
+        padding-bottom: 100px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .doOrderContainer {
+        .doOrder {
+            font-size: 20px;
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+    .checkboxName {
+        font-size: 13px;
+    }
+    .button {
+        font-size: 18px;
+    }
+    .mainContainer {
+        width: 100%;
+        padding-bottom: 60px;
+    }
+    .or, .textfieldName {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 375px) {
+    .mainContainer, .textfieldName {
+        font-size: 14px;
+    }
+}

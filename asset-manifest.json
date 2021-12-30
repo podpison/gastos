@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/gastos/static/css/main.7deafaa2.chunk.css",
+    "main.js": "/gastos/static/js/main.d2718444.chunk.js",
+    "main.js.map": "/gastos/static/js/main.d2718444.chunk.js.map",
+    "runtime-main.js": "/gastos/static/js/runtime-main.019743eb.js",
+    "runtime-main.js.map": "/gastos/static/js/runtime-main.019743eb.js.map",
+    "static/css/2.c0961e49.chunk.css": "/gastos/static/css/2.c0961e49.chunk.css",
+    "static/js/2.61f008d0.chunk.js": "/gastos/static/js/2.61f008d0.chunk.js",
+    "static/js/2.61f008d0.chunk.js.map": "/gastos/static/js/2.61f008d0.chunk.js.map",
+    "index.html": "/gastos/index.html",
+    "static/css/2.c0961e49.chunk.css.map": "/gastos/static/css/2.c0961e49.chunk.css.map",
+    "static/css/main.7deafaa2.chunk.css.map": "/gastos/static/css/main.7deafaa2.chunk.css.map",
+    "static/js/2.61f008d0.chunk.js.LICENSE.txt": "/gastos/static/js/2.61f008d0.chunk.js.LICENSE.txt",
+    "static/media/dish.057e213b.png": "/gastos/static/media/dish.057e213b.png",
+    "static/media/lunchesDescription.module.scss": "/gastos/static/media/lunchDescription.d1276f26.png",
+    "static/media/package.ad057350.png": "/gastos/static/media/package.ad057350.png",
+    "static/media/shopOwner.a1882fb0.png": "/gastos/static/media/shopOwner.a1882fb0.png",
+    "static/media/slick-theme.css": "/gastos/static/media/slick.c94f7671.ttf",
+    "static/media/team.5858095f.jpg": "/gastos/static/media/team.5858095f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.019743eb.js",
+    "static/css/2.c0961e49.chunk.css",
+    "static/js/2.61f008d0.chunk.js",
+    "static/css/main.7deafaa2.chunk.css",
+    "static/js/main.d2718444.chunk.js"
+  ]
+}

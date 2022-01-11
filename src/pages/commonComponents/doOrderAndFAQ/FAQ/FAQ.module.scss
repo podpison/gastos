@@ -1,5 +1,8 @@
 @import './../../../../app.scss';
 
+.mainContainer {
+    margin-top: 20px;
+}
 .sign {
     font-size: 25px;
     font-weight: bold;
@@ -12,21 +15,33 @@
     padding: 0 15px;
     margin-top: 20px;
     font-family: "Montserrat", sans-serif;
+    transition: 0.5s;
+    &:hover {
+        background-color: $lightGreen;
+        color: white;
+        .expandIcon {
+            color: white;
+        }
+    }
     .variants {
         color: white;
-        .detailsItem {
-            font-weight: bold;
-        }
         p:not(:first-child) {
             margin-top: 10px;
         }
     }
-    .MuiAccordionSummary-expandIconWrapper {
-        transform: rotate(90deg)!important;
+    .header {
+        font-weight: bold;
+        .Mui-expanded {
+            transform: rotate(90deg)!important;
+        }
     }
 }
 .active {
     background-color: $lightGreen;
+    color: white;
+    .expandIcon {
+        color: white
+    }
 }
 .clickable {
     cursor: pointer;

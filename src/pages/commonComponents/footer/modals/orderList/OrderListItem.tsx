@@ -6,5 +6,5 @@ type Props = {
 }
 
 export const OrderListItem: React.FC<Props> = ({name, count}) => {
-    return <p className={c.item}>{name} шт. - {count} грн.</p>
+    return <p className={c.item}>{name} - {count} шт.</p>
 }

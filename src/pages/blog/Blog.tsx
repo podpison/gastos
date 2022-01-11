@@ -23,12 +23,12 @@ export const Blog: React.FC = () => {
 
     return <>
         <Route exact path='/blog' render={() => {
-            return <>
+            return <div className={c.mainContainer}>
                 <Pagination Cards={Cards} getCurrentPage={getCurrentPage} />
-                <div className={c.container}>
+                <div className={c.cardsContainer}>
                     {Cards?.slice(currentPage * 9 - 9, currentPage * 9 - 1)}
                 </div>
-            </>
+            </div>
         }} />
         <Switch>
             {_CardDetails}

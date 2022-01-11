@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import './app.scss';
 import { Navigation } from './pages/commonComponents/navigation/Navigation';
 import StyledEngineProvider from '@mui/material/StyledEngineProvider';
@@ -18,9 +18,9 @@ function App() {
   return (
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
-        <BrowserRouter>
-          <div className='app'>
-            <Navigation />
+        <HashRouter basename={process.env.PUBLIC_URL}>
+          <Navigation />
+          <main className='main'>
             <Switch>
               <Route exact path='/' component={MainPage} />
               <Route path='/foodPrograms' component={MainPage} />
@@ -32,10 +32,10 @@ function App() {
             <Route path={['/foodPrograms', '/aboutUs', '/buisnesLanch', '/foodPictures']} component={FoodPictures} />
             <Route exact path='/' component={FoodPictures} />
             <Route exact path='/' component={DoOrderAndFAQ} />
-            <Route path={['/foodPrograms','/aboutUs', '/foodPictures']} component={DoOrderAndFAQ} />
-            <Footer />
-          </div>
-        </BrowserRouter>
+            <Route path={['/foodPrograms', '/aboutUs', '/foodPictures']} component={DoOrderAndFAQ} />
+          </main>
+          <Footer />
+        </HashRouter>
       </Provider>
     </StyledEngineProvider>
   );

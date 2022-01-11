@@ -15,6 +15,7 @@
     @include fontSize20;
     @include mainPaddings;
     display: grid;
+    font-family: $montserrat;
     grid-template-columns: repeat(3, 1fr);
     box-shadow: 0 0 30px rgba(86, 86, 86, 0.25);
     margin: 150px 0 100px;
@@ -27,7 +28,6 @@
         }
         a {
             margin: 0;
-            font-weight: bold;
             &:not(:first-child) {
                 @include marginTop10;
             }
@@ -36,6 +36,7 @@
     .logoContainer {
         @include flex;
         align-items: center;
+        justify-content: flex-end;
         .logoSign {
             margin-top: 5px;
         }
@@ -43,13 +44,7 @@
     .contacts {
         @include flex;
         align-items: flex-end;
-        .termsOfCooperation {
-            @include link;
-        }
-        .FAQ {
-            @include link;
-            @include marginTop10;
-        }
+        justify-content: flex-end;
         .phone {
             @include marginTop10;
             @include link;
@@ -66,6 +61,10 @@
     }
     svg {
         margin-left: 5px;
+        transition: 0.5s;
+        &:hover {
+            color: $lightGreen;
+        }
     }
 }
 

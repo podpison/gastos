@@ -1,0 +1,23 @@
+@import "./../../../../../app.scss";
+
+.alert {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    animation: fadeIn 10s;
+    font-size: 16px;
+    background-color: $lightGreen;
+    color: white;
+    .icon {
+        color: white
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}

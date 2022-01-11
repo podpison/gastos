@@ -6,7 +6,7 @@ import { MobileNav } from "./MobileNav";
 import c from './navigation.module.scss';
 
 export const Navigation: React.FC = () => {
-    const phoneNumber = '77 (777) 777 - 77 - 77';
+    const phoneNumber = '77 (777) 7 77 - 77 - 77';
 
     let pathname = useLocation().pathname;
     let circleClass = pathname.includes('/foodPrograms') || pathname.includes('/aboutUs') || pathname === '/' ? c.bigGreenCircle : c.smallGreenCirle

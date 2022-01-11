@@ -1,6 +1,5 @@
-.mainContainer {
-    padding-top: 100px
-}
+@import "./../../../app.scss";
+
 .programNames {
     text-align: center;
     padding: 40px 0;
@@ -15,20 +14,19 @@
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
+    transition: 0.5s;
+    &:hover {
+        color: $lightGreen;
+    }
 }
 .active {
-    color: #64D370;
+    color: $lightGreen;
 }
 .programWeight {
     font-size: 14px;
     margin-top: 7px
 }
 
-@media screen and (max-width: 1440px) {
-    .mainContainer {
-        padding-top: 0;
-    }
-}
 @media screen and (max-width: 768px) {
     .programName {
         font-size: 14px;

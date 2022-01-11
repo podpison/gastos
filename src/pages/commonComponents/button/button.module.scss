@@ -9,6 +9,12 @@
     margin: 50px 0 40px auto;
     background-color: $lightGreen;
     color: white;
+    border: 3px solid $lightGreen;
+    transition: 0.5s;
+    &:hover {
+        background-color: white;
+        color: $lightGreen;
+    }
     @media screen and (max-width: 1024px) {
         font-size: 20px;
     }

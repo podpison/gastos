@@ -1,6 +1,6 @@
 import { OrderListItem } from "./OrderListItem";
 import c from "./orderList.module.scss";
-import { OnlineOrderModalProductType } from "../../../../../../redux/staticReducer";
+import { OnlineOrderModalProductType } from "../../../../../redux/staticReducer";
 
 type Props = {
     items: OnlineOrderModalProductType[]

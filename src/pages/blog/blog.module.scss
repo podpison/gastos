@@ -2,7 +2,11 @@
 
 $circleColor: rgba(100, 211, 112, 0.5);
 
-.container {
+.mainContainer {
+    padding-top: 30px
+}
+
+.cardsContainer {
     @include mainPaddings;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

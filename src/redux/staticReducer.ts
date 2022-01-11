@@ -2,11 +2,12 @@ import { ActionsType } from "./store";
 import { itemsAPI } from "./../api/api";
 import { Dispatch } from "redux";
 
-type CarouselItem = {
+export type CarouselItemType = {
     img: string
     mainDescription: string
     countDescription: string
-    price: string
+    price: number
+    programName: string
 }
 type AdvantagesItem = {
     img: string
@@ -15,6 +16,7 @@ type AdvantagesItem = {
 export type FoodProgram = {
     name: string
     weight: string
+    price: number
     description: string
     orderInfo: {
         name: string
@@ -41,6 +43,7 @@ export type FAQItemType = {
     headline: string
     variants: string[]
     type: 'clickable' | 'input' | 'information'
+    headlineCode?: string
 };
 type MainPageFAQType = {
     mainPageFAQ: FAQItemType[]
@@ -93,7 +96,7 @@ export type GastroShopChapterType = {
 
 //each item can be as an item or undefined or just an empty array
 let initialState = {
-    carouselItems: [] as CarouselItem[],
+    carouselItems: [] as CarouselItemType[],
     advantagesItems: [] as AdvantagesItem[],
     foodPrograms: [] as FoodProgram[],
     foodPictures: [] as FoodPicture[],
@@ -101,7 +104,15 @@ let initialState = {
     onlineOrderModalProduct: [] as OnlineOrderModalProductType[],
     blogItems: [] as BlogItemType[] | undefined | [],
     lunchItems: [] as LunchType[] | undefined | [],
-    gastroShopItems: [] as GastroShopChapterType[] | undefined | []
+    gastroShopItems: [] as GastroShopChapterType[] | undefined | [],
+    modalsShowStatus: {
+        isOnlineOrderModalShown: false,
+        isPhoneModalShown: false,
+    },
+    nameAndPhone: {
+        name: '',
+        phone: ''
+    }
 };
 
 type Actions = ActionsType<typeof staticActions>;
@@ -123,17 +134,25 @@ export const staticReducer = (state = initialState, action: Actions) => {
                 newArray.push({ ...action.product, count: 1 })
             };
 
-            return { ...state, onlineOrderModalProduct: newArray }
+            return { ...state, onlineOrderModalProduct: newArray };
+        case 'STATIC/SET-MODAL-SHOW-STATUS':
+                return action.modalName === 'onlineModal' ?
+                { ...state, modalsShowStatus: {...state.modalsShowStatus, isOnlineOrderModalShown: action.status}}
+                : { ...state, modalsShowStatus: {...state.modalsShowStatus, isPhoneModalShown: action.status}};
+        case 'STATIC/SET-NAME-OR-PHONE':
+            return {...state, nameAndPhone: {...state.nameAndPhone, [action.nameOrPhone]: action.newWord}};
         default:
             return { ...state };
     };
 };
 
-export type StaticItemsType = CarouselItem[] | AdvantagesItem[];
+export type StaticItemsType = CarouselItemType[] | AdvantagesItem[];
 
 export const staticActions = {
     setItems: (itemsType: string, items: StaticItemsType) => ({ type: 'STATIC/SET-ITEMS', itemsType, items } as const),
-    setProductToOnlineOrderModal: (product: OnlineOrderModalProductType) => ({ type: 'STATIC/SET-PRODUCT-TO-ONLINE-ORDER-MODAL', product } as const)
+    setProductToOnlineOrderModal: (product: OnlineOrderModalProductType) => ({ type: 'STATIC/SET-PRODUCT-TO-ONLINE-ORDER-MODAL', product } as const),
+    setModalShowStatus: (modalName: 'onlineModal' | 'phoneModal', status: boolean) => ({type: 'STATIC/SET-MODAL-SHOW-STATUS', modalName, status} as const),
+    setNameOrPhone: (nameOrPhone: 'name' | 'phone', newWord: string) => ({type: 'STATIC/SET-NAME-OR-PHONE', nameOrPhone, newWord} as const)
 };
 
 export const getStaticItems = (itemsType: string) => async (dispatch: Dispatch) => {

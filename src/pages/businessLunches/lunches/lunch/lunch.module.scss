@@ -55,6 +55,13 @@
                 border-radius: 50%;
                 height: 30px;
                 display: flex;
+                transition: 0.5s;
+                &:hover {
+                    background-color: $lightGreen;
+                    .symbol {
+                        color: white
+                    }
+                }
                 .symbol {
                     width: 15px;
                     margin: auto;
@@ -62,6 +69,7 @@
             }
             .count {
                 padding: 0 10px;
+                width: 15px;
             }
         }
         p {

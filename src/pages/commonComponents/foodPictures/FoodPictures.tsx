@@ -45,7 +45,7 @@ export const FoodPictures: React.FC = () => {
     ];
 
     return <div className={c.mainContainer}>
-        <p className={c.sign}>Food pictures</p>
+        <p className={c.sign}>Фото блюд</p>
         <Carousel dots={false} swipeToSlide infinite responsive={responsive} slidesToShow={4} slidesToScroll={1}>
             {Pictures}
         </Carousel>

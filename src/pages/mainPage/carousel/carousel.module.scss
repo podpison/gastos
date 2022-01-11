@@ -51,11 +51,17 @@
 }
 .button {
     color: white;
-    background-color: #64D370;
+    background-color: $lightGreen;
     border-radius: 190px;
     padding: 0 60px;
-    box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
+    box-shadow: 17px 2px 40px rgba(86, 86, 86, 0.3%);
     font-size: 26px;
+    border: 3px solid $lightGreen;
+    transition: 0.5s;
+    &:hover {
+        background-color: white;
+        color: $lightGreen;
+    }
 }
 .price {
     margin-left: 5%;
@@ -63,20 +69,44 @@
     text-align: start;
 }
 .greenSign, .arrow, .selected {
-    color: #64D370;
+    color: $lightGreen;
 }
 .greenSign {
     font-weight: bold;
     margin-top: 5px;
 }
-.arrow {
-    width: 15px;
-    margin: 0 5px;
+.arrowContainer {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: 0.5s;
+    &:hover {
+        background-color: $lightGreen;
+        .arrow {
+            color: white
+        }
+    }
+    .arrow {
+        width: 20px;
+        margin-top: 2px;
+        margin-left: 10px;
+    }
+}
+.arrowNextContainer {
+    .arrow {
+        margin-left: 3px;
+    }
 }
 .dot {
-    color: #64D370;
+    color: $lightGreen;
     width: 10px;
-    margin: 0 5px
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+        opacity: 0.6;
+    }
 }
 .active {
     width: 14px;
@@ -177,7 +207,6 @@
     }
     .secondDescription {
         font-size: 14px;
-        width: 50%;
     }
     .orderAndPrice {
         width: initial;

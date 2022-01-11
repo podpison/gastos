@@ -15,7 +15,7 @@
     .text {
         @include textWidth;
         @include adaptiveText;
-        margin: 50px 10%!important;
+        margin: 13% 10%!important;
         .footer {
             font-size: 32px;
             margin-top: 70px!important;
@@ -26,6 +26,9 @@
                 font-size: 17px;
                 margin: inherit!important;
             }
+        }
+        @media screen and (max-width: 1440px) {
+            margin-top: 5%!important;
         }
         @media screen and (max-width: 1024px) {
             margin-left: inherit!important;

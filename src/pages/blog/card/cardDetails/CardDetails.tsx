@@ -47,7 +47,9 @@ export const CardDetails: React.FC<Props> = ({ mainImage, text, headline, date }
                 {Text}
             </div>
         </div>
-        <Button className={c.button} variant='contained'>Программы Питания</Button>
+            <Link className={c.link} to='/foodPrograms'>
+                <Button className={c.button} variant='contained'>Программы Питания</Button>
+            </Link>
         <Offers />
     </div>
 };

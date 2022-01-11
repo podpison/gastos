@@ -10,11 +10,13 @@
     box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
     border-radius: 30px;
 }
-.orderItemContainer, .descriptionHeader, .mainContainer {
+.orderItemContainer, .mainContainer {
     display: flex
 }
 .descriptionHeader {
     align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .orderItemContainer {
     justify-content: space-between;
@@ -24,9 +26,8 @@
     font-size: 25px;
     font-weight: bold;
 }
-.sidebarWeight {
-    font-size: 18px;
-    margin: 3% 0 0 7%;
+.sidebarWeight, .sidebarPrice {
+    margin: 5px 0 0 15px;
 }
 .sidebarDescription {
     margin-top: 15px;
@@ -46,6 +47,12 @@
     padding-right: 40px;
     font-size: 26px;
     font-weight: bold;
+    border: 3px solid #64D370;
+    transition: 0.5s;
+}
+.sidebarButton:hover {
+    background-color: white;
+    color: #64D370;
 }
 .orderItems {
     margin-top: 11%;
@@ -72,6 +79,7 @@
     grid-template-columns: repeat(7, 1fr);
     background-color: white;
     padding: 1% 0;
+    justify-items: center;
 }
 .weekDay {
     font-size: 25px;
@@ -79,6 +87,11 @@
     text-align: center;
     text-decoration: none;
     font-weight: bold;
+    width: fit-content;
+    transition: 0.5s;
+}
+.weekDay:hover {
+    color: #64D370;
 }
 .active {
     color: #64D370;
@@ -130,7 +143,7 @@
     .weekDays {
         padding: 2% 0;
     }
-    .scheduleTime, .sidebarWeight {
+    .scheduleTime, .sidebarWeight, .sidebarPrice {
         font-size: 10px;
     }
     .sidebarDescription {

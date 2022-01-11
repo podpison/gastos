@@ -39,14 +39,17 @@
                 margin-left: 15px;
             }
             @media screen and (max-width: 320px) {
-                margin-left: 13px;
+                margin-left: 10px;
             }
         }
         @media screen and (max-width: 1024px) {
-            font-size: 14px;
+            font-size: 12px;
         }
         @media screen and (max-width: 768px) {
-            font-size: 12px;
+            font-size: 10px;
+        }
+        @media screen and (max-width: 320px) {
+            font-size: 8px;
         }
     }
     .footer { 
@@ -63,10 +66,17 @@
                 width: 30px;
                 border-radius: 50%;
                 height: 30px;
+                display: flex;
+                transition: 0.5s;
+                &:hover {
+                    background-color: $lightGreen;
+                    .symbol {
+                        color: white
+                    }
+                }
                 .symbol {
                     width: 15px;
-                    margin-top: 3px;
-                    margin-left: 8px;
+                    margin: auto;
                 }
             }
             .count {

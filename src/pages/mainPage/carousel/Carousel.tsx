@@ -10,6 +10,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForwardIos';
 import { useDispatch, useSelector } from "react-redux";
 import { getStaticItems } from "../../../redux/staticReducer";
 import { getCarouselItemsSelector } from "../../../redux/selectors";
+import { useModalStatusChanger } from "../../../static/helpers/useModalStatusChanger";
 
 export const Carousel: React.FC = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,9 @@ export const Carousel: React.FC = () => {
         dispatch(getStaticItems('carouselItems'));
     }, [dispatch]);
 
-    let CarouselItems = useSelector(getCarouselItemsSelector).map(i => <CarouselItem key={i.price} {...i} />)
+    const changeModalStatus = useModalStatusChanger();
+
+    let CarouselItems = useSelector(getCarouselItemsSelector).map((i, index) => <CarouselItem openModal={changeModalStatus} key={index} {...i} />)
     let _carouselItemsLength = CarouselItems.length - 1;
 
     let [currentIndex, setCurrentIndex] = useState(0);
@@ -29,21 +32,21 @@ export const Carousel: React.FC = () => {
 
         if (index === 0) {
             return <>
-                <ArrowBackIcon className={c.arrow} onClick={setPrevIndex} />
+                <div onClick={setPrevIndex} className={c.arrowContainer}><ArrowBackIcon className={c.arrow} /></div>
                 {Dot}
             </>
         };
         if (index === _carouselItemsLength) {
             return <>
                 {Dot}
-                <ArrowForwardIcon className={c.arrow} onClick={setNextIndex} />
+                <div onClick={setNextIndex} className={`${c.arrowContainer} ${c.arrowNextContainer}`}><ArrowForwardIcon className={c.arrow} /></div>
             </>
         }
         return Dot;
     };
 
     return <div className={c.mainContainer}>
-        <PackageCarousel showArrows={false} showStatus={false} renderIndicator={renderIndicator} showThumbs={false} selectedItem={currentIndex} className={c.carouselContainer}>
+        <PackageCarousel swipeable={false} showArrows={false} showStatus={false} renderIndicator={renderIndicator} showThumbs={false} selectedItem={currentIndex} className={c.carouselContainer}>
             {CarouselItems}
         </PackageCarousel>
     </div>

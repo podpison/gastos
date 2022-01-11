@@ -42,7 +42,15 @@
                 display: flex;
                 margin-top: 15px;
                 a {
-                    color: black;
+                    svg {
+                        color: black;
+                        transition: 0.5s;
+                        &:hover {
+                            color: $lightGreen;
+                        }
+                    }
+                }
+                a:not(:first-child) {
                     margin-left: 15px;
                 }
                 p {

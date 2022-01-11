@@ -10,3 +10,5 @@ export const getOnlineOrderModalProduct = (state: StateType) => state.static.onl
 export const getBlogItemsSelector = (state: StateType) => state.static.blogItems;
 export const getLunchItemsSelector = (state: StateType) => state.static.lunchItems;
 export const getGastroShopItemsSelector = (state: StateType) => state.static.gastroShopItems;
+export const getModalsShowStatusSelector = (state: StateType) => state.static.modalsShowStatus;
+export const getNameAndPhoneSelector = (state: StateType) => state.static.nameAndPhone;

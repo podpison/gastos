@@ -32,8 +32,14 @@
             display: flex;
             justify-content: space-between;
             border-radius: 190px;
-            border: 1.5px solid $lightGreen;
             color: $lightGreen;
+            border: 1.5px solid $lightGreen;
+            transition: 0.5s;
+            &:hover {
+                color: white;
+                background-color: $lightGreen;
+                border-color: white;
+            }
             .buttonSign {
                 font-size: 14px;
                 padding-right: 5px;

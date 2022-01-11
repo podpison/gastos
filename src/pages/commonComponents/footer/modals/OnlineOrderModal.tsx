@@ -1,16 +1,16 @@
 import { Button, Modal } from "@mui/material";
-import { Checkbox } from "../Checkbox";
 import CloseIcon from "@mui/icons-material/Close";
 import c from "./modals.module.scss";
 import { BadgeTextField } from "./BadgeTextField";
-import { FAQ } from "../../FAQ/FAQ";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getStaticItems } from "../../../../../redux/staticReducer";
-import { getFAQSelector, getOnlineOrderModalProduct } from "../../../../../redux/selectors";
 import { OrderList } from "./orderList/OrderList";
+import { getStaticItems, staticActions } from "../../../../redux/staticReducer";
+import { getFAQSelector, getOnlineOrderModalProduct } from "../../../../redux/selectors";
+import { FAQ } from "../../doOrderAndFAQ/FAQ/FAQ";
 
 type Props = {
+    setIsOrderedSuccessfully: (status: boolean) => void
     name: string
     phone: string
     closeModal: () => void
@@ -25,7 +25,7 @@ const id = 'onlineOrderModal';
 
 const userCred: UserCredType = { type: 'online order' } //autogenerate
 
-export const OnlineOrderModal: React.FC<Props> = ({ name, phone, closeModal, isOpen }) => {
+export const OnlineOrderModal: React.FC<Props> = ({ setIsOrderedSuccessfully, name, phone, closeModal, isOpen }) => {
     const updateUserCred = (credField: string, newValue: string) => {
         userCred[credField] = newValue;
     };
@@ -44,15 +44,16 @@ export const OnlineOrderModal: React.FC<Props> = ({ name, phone, closeModal, isO
     const closeModalHandler = () => {
         if (!isDisabled) {
             console.log(userCred);
+            setIsOrderedSuccessfully(true);
             closeModal();
+            dispatch(staticActions.setNameOrPhone('name', ''));
+            dispatch(staticActions.setNameOrPhone('phone', ''));
         };
     };
 
-    const [isWarningShown, setIsWarningShown] = useState(false);
+    const [isWarningShown, setIsWarningShown] = useState<boolean | null>(false);
 
-    //to do useEffect bellow this component must be rerendered
-    const [rerender, setRerender] = useState('');
-    useEffect(() => {
+    const checkErrors = useCallback(() => {
         let mainContainerQuery = document.getElementById(id);
         if (mainContainerQuery) {
             if (mainContainerQuery.getElementsByClassName(c.badStatus).length !== 0) {
@@ -61,17 +62,37 @@ export const OnlineOrderModal: React.FC<Props> = ({ name, phone, closeModal, isO
             } else if (mainContainerQuery.getElementsByClassName(c.noneStatus).length !== 0) {
                 setIsDisabled(true);
             } else {
-                setIsWarningShown(false);
-                setIsDisabled(false);
+                if (OnlineOrderModalProducts.length === 0) {
+                    setIsWarningShown(null);
+                    setIsDisabled(true);
+                } else {
+                    setIsWarningShown(false);
+                    setIsDisabled(false);
+                }
             };
         };
-    }, [rerender]);
+        //eslint-disable-next-line
+    }, []);
+
+    useEffect(() => {
+        setTimeout(() => {
+            checkErrors();
+        }, 300)
+        //eslint-disable-next-line
+    }, []);
+
+    //to do useEffect bellow this component must be rerendered
+    const [rerender, setRerender] = useState('');
+    useEffect(() => {
+        checkErrors();
+    }, [checkErrors, rerender, OnlineOrderModalProducts.length]);
 
     return <Modal className={c.modal}  onClose={closeModal} open={isOpen}>
         <div className={c.onlineModalContainer}>
             <div className={c.infoAndButton}>
                 <div className={c.onlineContainer}>
-                    {isWarningShown && <p className={c.gapsWarning}>Fill in all the gaps correctly</p>}
+                    {isWarningShown === true && <p className={c.gapsWarning}>Fill in all the gaps correctly</p>}
+                    {isWarningShown === null && <p className={c.gapsWarning}>You don't order anything</p>}
                     <CloseIcon onClick={closeModal} className={c.close} />
                     <div id={id}>
                         <BadgeTextField updateUserCred={(newValue: string) => updateUserCred('name', newValue)} id='badgeName' placeholder='Name' value={name} type='text' className={c.bigTextField} regExpType='name' rerender={setRerender} />
@@ -79,21 +100,18 @@ export const OnlineOrderModal: React.FC<Props> = ({ name, phone, closeModal, isO
                         <div className={c.textFields}>
                             <div className={c.textFieldsFirstPart}>
                                 <BadgeTextField updateUserCred={(newValue: string) => updateUserCred('street', newValue)} id='badgeStreet' placeholder='Street' type='text' className={c.street} regExpType='street' rerender={setRerender} />
-                                <BadgeTextField updateUserCred={(newValue: string) => updateUserCred('home', newValue)} id='badgeHome' maxLength={3} type='number' className={c.home} rerender={setRerender} />
-                                <BadgeTextField updateUserCred={(newValue: string) => updateUserCred('floor', newValue)} id='badgeFloor' maxLength={2} type='number' className={c.floor} rerender={setRerender} />
+                                <BadgeTextField badgeClass={c.badgeHome} updateUserCred={(newValue: string) => updateUserCred('home', newValue)} id='badgeHome' maxLength={3} type='number' className={c.home} rerender={setRerender} />
+                                <BadgeTextField badgeClass={c.badgeFloor} updateUserCred={(newValue: string) => updateUserCred('floor', newValue)} id='badgeFloor' maxLength={2} type='number' className={c.floor} rerender={setRerender} />
                             </div>
                             <div className={c.textFieldsSecondPart}>
                                 <BadgeTextField updateUserCred={(newValue: string) => updateUserCred('apartment', newValue)} id='badgeApartment' maxLength={3} type='number' className={c.apartment} rerender={setRerender} />
-                                <BadgeTextField updateUserCred={(newValue: string) => updateUserCred('frontDoor', newValue)} id='badgeFrontDoor' maxLength={3} type='number' className={c.frontDoor} rerender={setRerender} />
-                                <BadgeTextField updateUserCred={(newValue: string) => updateUserCred('intercom', newValue)} id='badgeIntercom' maxLength={3} type='number' className={c.intercom} rerender={setRerender} />
+                                <BadgeTextField badgeClass={c.badgeFrontDoor} updateUserCred={(newValue: string) => updateUserCred('frontDoor', newValue)} id='badgeFrontDoor' maxLength={3} type='number' className={c.frontDoor} rerender={setRerender} />
+                                <BadgeTextField badgeClass={c.badgeIntercom} updateUserCred={(newValue: string) => updateUserCred('intercom', newValue)} id='badgeIntercom' maxLength={3} type='number' className={c.intercom} rerender={setRerender} />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={c.orderInformationAndButtonAndCheckboxContainer}>
-                    <div className={c.checkboxContainer}>
-                        <Checkbox description='Согласен с условиями сотрудничества' />
-                    </div>
                     <div className={c.orderInformationAndButtonContainer}>
                         <div className={c.orderInformationAndButton}>
                             <Button disabled={isDisabled} onClick={closeModalHandler} className={c.button} variant='outlined'>Заказать</Button>
@@ -108,9 +126,6 @@ export const OnlineOrderModal: React.FC<Props> = ({ name, phone, closeModal, isO
             </div>
             {/* it's quite weird isn't it? lol */}
             <div className={c.orderInformationAndButtonAndCheckboxContainerMobile}>
-                    <div className={c.checkboxContainer}>
-                        <Checkbox description='Согласен с условиями сотрудничества' />
-                    </div>
                     <div className={c.orderInformationAndButtonContainer}>
                         <div className={c.orderInformationAndButton}>
                             <Button disabled={isDisabled} onClick={closeModalHandler} className={c.button} variant='outlined'>Заказать</Button>

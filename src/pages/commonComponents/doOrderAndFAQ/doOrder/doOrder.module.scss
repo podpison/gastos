@@ -35,6 +35,14 @@
     padding: 0 4%;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid #DEE6EE;
+    transition: 0.5s;
+    &:hover {
+        border-color: $lightGreen;
+    }
+    &:focus-within {
+        border-color: $lightGreen;
+    }
 }
 .goodStatus, .badStatus {
     width: 10px;
@@ -50,33 +58,6 @@
 .noneStatus {
     background-color: inherit;
 }
-.checkboxContainer {
-    display: flex;
-    align-items: center;
-    margin: 15px 0;
-}
-.checkboxContainer:first-child {
-    margin-top: 3%;
-}
-.checkboxName {
-    font-family: $comfortaa;
-    font-weight: bold;
-}
-.checkbox {
-    width: 38px;
-    height: 38px;
-}
-.icon, .checkedIcon {
-    background-color: #DEE6EE;
-    color: #DEE6EE;
-    border-radius: 50%;
-}
-.checkedIcon {
-    padding: 5px;
-    width: 10px;
-    height: 10px;
-    color: $lightGreen;
-}
 .textfieldMainContainer:last-child, .textfieldsContainer {
     margin-top: 8%;
 }
@@ -89,10 +70,19 @@
     font-weight: bold;
     border-width: 3px;
     display: flex;
-    margin: 0 auto
+    margin: 0 auto;
+    transition: 0.5s;
+    &:hover {
+        background-color: $lightGreen;
+        color: white;
+        border: 3px solid $lightGreen;
+    }
 }
 .button:first-child {
     margin-top: 3%;
+}
+.buttonsContainer {
+    margin-top: 20px;
 }
 .or {
     font-family: $comfortaa;

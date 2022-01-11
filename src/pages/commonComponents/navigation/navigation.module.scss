@@ -34,14 +34,18 @@
     display: flex;
     margin: 0 0 3% -2%;
 }
-.navLinksContainer, .logoContainer {
+.navLinksContainer, .logoContainer, .number {
     box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
 }
 .link{
     color: black;
     text-decoration: none;
     margin-left: 40px;
-    font-family: $comfortaa
+    font-family: $comfortaa;
+    transition: 0.5s;
+    &:hover {
+        color: $lightGreen;
+    }
 }
 .navLinksContainer a:first-child {
     margin-left: 60px;
@@ -49,21 +53,30 @@
 .navLinksContainer a:last-child {
     margin-right: 40px;
 }
+.navLinksContainer {
+    padding: 20px 0 10px;
+}
 .active {
     color: #64D370;
 }
 .navLinksContainer, .number {
     background-color: white;
     border-radius: 190px;
-    padding: 17px 0;
 }
 .number {
     margin-left: 20px;
-    padding-right: 30px;
-    padding-left: 30px;
     font-size: 20px;
     font-weight: bold;
     line-height: 20px;
+    border: 3px solid white;
+    padding: 17px 30px;
+    transition: 0.5s;
+    &:hover {
+        background-color: $lightGreen;
+        a {
+            color: white;
+        }
+    }
     a {
         text-decoration: none;
         color: #64D370;
@@ -153,6 +166,7 @@
         margin: 40px auto 20px;
         background-color: $lightGreen;
         .phoneNumber {
+        font-family: $montserrat;
             margin: auto;
             font-size: 18px;
             color: white;

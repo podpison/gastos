@@ -6,19 +6,19 @@ import { FoodProgram } from "../../../../redux/staticReducer";
 
 type Props = FoodProgram
 
-export let Item: React.FC<Props> = ({ name, weight, description, orderInfo, weekSchedule }) => {
+export let Item: React.FC<Props> = ({ name, weight, price, description, orderInfo, weekSchedule }) => {
 
     let path = `/foodPrograms/${name.toLowerCase().replace(/\s+/g, '')}`;
     return <>
         <Route exact path={['/', '/foodPrograms']} render={() => {
             return <div className={c.mainContainer}>
-                <Sidebar name={name} weigth={weight} description={description} orderInfo={orderInfo} />
+                <Sidebar price={price} name={name} weigth={weight} description={description} orderInfo={orderInfo} />
                 <WeekSchedule path={path} weekSchedule={weekSchedule} />
             </div>
         }} />
         <Route path={path} render={() => {
             return <div className={c.mainContainer}>
-                <Sidebar name={name} weigth={weight} description={description} orderInfo={orderInfo} />
+                <Sidebar price={price} name={name} weigth={weight} description={description} orderInfo={orderInfo} />
                 <WeekSchedule path={path} weekSchedule={weekSchedule} />
             </div>
         }} />

@@ -1,5 +1,8 @@
 import { TextField as MUITextField } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getNameAndPhoneSelector } from "../../../../redux/selectors";
+import { staticActions } from "../../../../redux/staticReducer";
 import c from "./doOrder.module.scss";
 
 type Props = {
@@ -7,11 +10,18 @@ type Props = {
     id: string
     helperText: string
     type: 'name' | 'phone';
-    changeValue: (value: string) => void
-    value: string
 }
+//eslint-disable-next-line
+const nameRegExp = /\p{L}/u;
+const phoneRegExp = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/;
 
-export const TextField: React.FC<Props> = ({ rerender, id, helperText, type, changeValue, value }) => {
+export const TextField: React.FC<Props> = ({ rerender, id, helperText, type }) => {
+    const dispatch = useDispatch();
+    const valueChanger = (nameOrPhone: 'name' | 'phone', newWord: string) => {
+        dispatch(staticActions.setNameOrPhone(nameOrPhone, newWord));
+    };
+    let nameAndPhone = useSelector(getNameAndPhoneSelector);
+    
     let [isStatusShown, setIsStatusShown] = useState<null | boolean>(null);
     let textfieldClasses = '';
     const showStatus = () => {
@@ -30,25 +40,28 @@ export const TextField: React.FC<Props> = ({ rerender, id, helperText, type, cha
     let Status = showStatus();
 
     useEffect(() => {
-        //eslint-disable-next-line
-        const nameRegExp = /^([A-Za-z]+[\-\']?)$/;
-        const phoneRegExp = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/;
         let testString = type === 'name' ? nameRegExp : phoneRegExp;
+        nameAndPhone[type] === '' ? setIsStatusShown(null) : setIsStatusShown(testString.test(nameAndPhone[type]));
+        //eslint-disable-next-line
+    }, []);
 
+    useEffect(() => {
+        let testString = type === 'name' ? nameRegExp : phoneRegExp;
         let form = document.getElementById(id);
         const listener = () => {
-            value === '' ? setIsStatusShown(null) : setIsStatusShown(testString.test(value));
-            if (rerender) rerender(value);
+            nameAndPhone[type] === '' ? setIsStatusShown(null) : setIsStatusShown(testString.test(nameAndPhone[type]));
+            if (rerender) rerender(nameAndPhone[type]);
         };
-        
+        listener();
+
         form?.addEventListener(('focusout'), listener);
         return () => form?.removeEventListener('focusout', listener);
-    }, [value, type, id, rerender]);
+    }, [nameAndPhone, type, id, rerender]);
 
     return <div id={id} className={c.textfieldMainContainer}>
         <p className={textfieldClasses}>{helperText}</p>
         <div className={c.textFieldContainer}>
-            <MUITextField fullWidth InputProps={{disableUnderline: true}} id={id} className={c.textField} variant='standard' value={value} onChange={(e) => changeValue(e.target.value)} />
+            <MUITextField type={type === 'name' ? 'text' : 'number'} fullWidth InputProps={{disableUnderline: true}} id={id} className={c.textField} variant='standard' value={nameAndPhone[type]} onChange={(e) => valueChanger(type, e.target.value)} />
             {Status}
         </div>
     </div>

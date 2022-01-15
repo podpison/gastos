@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/gastos/static/css/main.c3ae002d.chunk.css",
-    "main.js": "/gastos/static/js/main.f2ec962c.chunk.js",
-    "main.js.map": "/gastos/static/js/main.f2ec962c.chunk.js.map",
+    "main.css": "/gastos/static/css/main.390cb699.chunk.css",
+    "main.js": "/gastos/static/js/main.3ffdf9fd.chunk.js",
+    "main.js.map": "/gastos/static/js/main.3ffdf9fd.chunk.js.map",
     "runtime-main.js": "/gastos/static/js/runtime-main.019743eb.js",
     "runtime-main.js.map": "/gastos/static/js/runtime-main.019743eb.js.map",
     "static/css/2.c0961e49.chunk.css": "/gastos/static/css/2.c0961e49.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.8c5c0620.chunk.js.map": "/gastos/static/js/2.8c5c0620.chunk.js.map",
     "index.html": "/gastos/index.html",
     "static/css/2.c0961e49.chunk.css.map": "/gastos/static/css/2.c0961e49.chunk.css.map",
-    "static/css/main.c3ae002d.chunk.css.map": "/gastos/static/css/main.c3ae002d.chunk.css.map",
+    "static/css/main.390cb699.chunk.css.map": "/gastos/static/css/main.390cb699.chunk.css.map",
     "static/js/2.8c5c0620.chunk.js.LICENSE.txt": "/gastos/static/js/2.8c5c0620.chunk.js.LICENSE.txt",
     "static/media/dish.057e213b.png": "/gastos/static/media/dish.057e213b.png",
     "static/media/lunchesDescription.module.scss": "/gastos/static/media/lunchDescription.d1276f26.png",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.019743eb.js",
     "static/css/2.c0961e49.chunk.css",
     "static/js/2.8c5c0620.chunk.js",
-    "static/css/main.c3ae002d.chunk.css",
-    "static/js/main.f2ec962c.chunk.js"
+    "static/css/main.390cb699.chunk.css",
+    "static/js/main.3ffdf9fd.chunk.js"
   ]
 }

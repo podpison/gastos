@@ -32,6 +32,9 @@ $circleColor: rgba(100, 211, 112, 0.5);
             display: none;
         }
     }
+    @media screen and (max-width: 2560px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
     @media screen and (max-width: 1440px) {
         margin: 0 6.3%;
         margin-top: 8%;

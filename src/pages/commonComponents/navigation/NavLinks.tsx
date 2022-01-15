@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const NavLinks: React.FC<Props> = ({closeBurger}) => {
-    return <div>
+    return <div className={c.linksContainer}>
         <NavLink isActive={(match, location) => isLinkActiveHelper(match, location, true, '/foodPrograms', '', '', true)} onClick={closeBurger} activeClassName={c.active} className={c.link} to='/foodPrograms'>Програмы питания</NavLink>
         <NavLink onClick={closeBurger} activeClassName={c.active} className={c.link} to='/buisnesLanch'>Бизнес-ланчи</NavLink>
         <NavLink onClick={closeBurger} activeClassName={c.active} className={c.link} to='/gastroShop'>Gastro Shop</NavLink>

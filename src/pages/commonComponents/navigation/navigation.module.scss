@@ -1,16 +1,20 @@
 @import "./../../../app.scss";
 
 .appBar {
-    padding: 0 5%;
+    padding: 0 7.8%;
     background-color: inherit;
     position: relative;
     box-shadow: none;
     z-index: 0;
 }
 .mainContainer {
-    display: flex;
-    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
     align-items: center;
+    @media screen and (max-width: 425px) {
+        margin: auto;
+        display: flex;
+    }
 }
 .logoContainer {
     background-color: #F5FAFF;
@@ -31,27 +35,26 @@
     font-family: 'Comfortaa', cursive;
 }
 .navContainer {
-    display: flex;
-    margin: 0 0 3% -2%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: fit-content;
+    margin: 0 0 0 -2%;
 }
 .navLinksContainer, .logoContainer, .number {
     box-shadow: 0 0 40px rgba(86, 86, 86, 0.3);
 }
-.link{
+.linksContainer {
+    margin: 0 7%;
+}
+.link {
     color: black;
     text-decoration: none;
-    margin-left: 40px;
+    margin-left: 4%;
     font-family: $comfortaa;
     transition: 0.5s;
     &:hover {
         color: $lightGreen;
     }
-}
-.navLinksContainer a:first-child {
-    margin-left: 60px;
-}
-.navLinksContainer a:last-child {
-    margin-right: 40px;
 }
 .navLinksContainer {
     padding: 20px 0 10px;
@@ -71,6 +74,7 @@
     border: 3px solid white;
     padding: 17px 30px;
     transition: 0.5s;
+    text-align: center;
     &:hover {
         background-color: $lightGreen;
         a {
@@ -179,7 +183,7 @@
 
 @media screen and (max-width: 1440px) {
     .appBar {
-        padding: 0 2.2%;
+        padding: 0 4.7%;
     }
     .bigGreenCircle {
         right: -20%;
@@ -205,7 +209,6 @@
         }
         .link {
             font-size: 12px;
-            margin-left: 20px;
         }
     }
     .number {
